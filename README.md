@@ -98,6 +98,7 @@ idea-synthesis-skill/
 ├── config.example.yml    ← template for the local, gitignored config.yml
 ├── README.md             ← this file
 ├── README.de.md          ← German version
+├── ROADMAP.md            ← staged implementation plan with gates and metrics
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -109,6 +110,10 @@ idea-synthesis-skill/
 ## Related skills
 
 The skill is one of three that share the same Idea Cockpit: `idea-cockpit` captures and triages, `fragment-triage` collects scattered fragments, and `idea-serendipity` combines entries freely without a seed. All three write only sparks — the weekly review is the quality gate.
+
+## Roadmap
+
+The skill is rolled out in three gated stages — manual runs with a four-week measurement window, a weekly scheduled run that stops at the preview, and deeper infrastructure only if a measured gap justifies it. Stages, gates, metrics and risks are in [ROADMAP.md](ROADMAP.md) (German, with an English summary).
 
 ## Changelog
 

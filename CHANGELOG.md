@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `ROADMAP.md` — staged implementation plan: three gated stages (manual runs with measurement window, weekly scheduled run ending at the preview, infrastructure only on a measured gap), metrics, risks and repo versioning per stage; linked from both READMEs
+
 ## [1.1.0] - 2026-10-05
 
 First public release. Includes the changes made after the reference run of 2026-10-04.

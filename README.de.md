@@ -98,6 +98,7 @@ idea-synthesis-skill/
 ├── config.example.yml    ← Vorlage für die lokale, gitignorierte config.yml
 ├── README.md             ← englische Version
 ├── README.de.md          ← diese Datei
+├── ROADMAP.md            ← Stufenplan mit Gates und Kennzahlen
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -109,6 +110,10 @@ idea-synthesis-skill/
 ## Verwandte Skills
 
 Der Skill ist einer von dreien, die dasselbe Idea Cockpit teilen: `idea-cockpit` erfasst und triagiert, `fragment-triage` sammelt verstreute Fragmente ein, `idea-serendipity` kombiniert Einträge frei und ohne Seed. Alle drei schreiben ausschliesslich Funken — das Weekly ist die Qualitätskontrolle.
+
+## Roadmap
+
+Die Einführung erfolgt in drei Stufen mit Gates — manuelle Läufe mit vierwöchigem Messfenster, ein wöchentlicher Scheduled Task, der bei der Vorschau endet, und tiefere Infrastruktur nur bei einer gemessenen Lücke. Stufen, Gates, Kennzahlen und Risiken stehen in [ROADMAP.md](ROADMAP.md).
 
 ## Changelog
 
