@@ -8,7 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `ROADMAP.md` — staged implementation plan: three gated stages (manual runs with measurement window, weekly scheduled run ending at the preview, infrastructure only on a measured gap), metrics, risks and repo versioning per stage; linked from both READMEs
+- `ROADMAP.md` — staged implementation plan: three gated stages, metrics, risks and repo versioning per stage; linked from both READMEs
+- `scheduled-task-prompt.md` — ID-free template of the weekly scheduled run: fixed seed rule per run for the first four runs, standard rule afterwards, hard write guard (run ends at the preview), approval in the run chat, audit line on the registry entry after write-back
+- `gate-evaluation-prompt.md` — ID-free template of the one-shot evaluation after the four-week window: promotions, noise and approval latency against comparison groups, three-way recommendation, report as comment on the registry entry
+- Section «Scheduled operation» in both READMEs
+
+### Changed
+- `ROADMAP.md` — Stage 1 runs on the scheduled task from the start (Thursday 06:10 Europe/Zurich) instead of manual runs; the gate is scored by a one-shot evaluation task the day after the last weekly review of the window; Stage 2 shrinks to regular operation, weekly integration and release
 
 ## [1.1.0] - 2026-10-05
 

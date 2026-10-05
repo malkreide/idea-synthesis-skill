@@ -99,6 +99,8 @@ idea-synthesis-skill/
 ├── README.md             ← englische Version
 ├── README.de.md          ← diese Datei
 ├── ROADMAP.md            ← Stufenplan mit Gates und Kennzahlen
+├── scheduled-task-prompt.md   ← Vorlage für den wöchentlichen Scheduled Task (endet bei der Vorschau)
+├── gate-evaluation-prompt.md  ← Vorlage für die einmalige Gate-Auswertung nach vier Wochen
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -113,7 +115,16 @@ Der Skill ist einer von dreien, die dasselbe Idea Cockpit teilen: `idea-cockpit`
 
 ## Roadmap
 
-Die Einführung erfolgt in drei Stufen mit Gates — manuelle Läufe mit vierwöchigem Messfenster, ein wöchentlicher Scheduled Task, der bei der Vorschau endet, und tiefere Infrastruktur nur bei einer gemessenen Lücke. Stufen, Gates, Kennzahlen und Risiken stehen in [ROADMAP.md](ROADMAP.md).
+Die Einführung erfolgt in drei Stufen mit Gates — ein vierwöchiges Messfenster mit einem Scheduled Task pro Woche, der bei der Vorschau endet, und einem einmaligen Auswertungs-Task für das Gate; derselbe Lauf als Regelbetrieb; tiefere Infrastruktur nur bei einer gemessenen Lücke. Stufen, Gates, Kennzahlen und Risiken stehen in [ROADMAP.md](ROADMAP.md).
+
+## Automatisierter Betrieb
+
+Zwei Prompt-Vorlagen machen aus dem Skill einen unbeaufsichtigten Wochenlauf, ohne die Kontrolle über das Schreiben abzugeben:
+
+- [`scheduled-task-prompt.md`](scheduled-task-prompt.md) — der wöchentliche Lauf. Er wählt nach fester Regel einen Seed, führt die Schritte 0–4 des Skills aus und **endet immer bei der Vorschau**; Funken werden erst nach Freigabe im Run-Chat geschrieben, danach folgt eine Audit-Zeile am Registry-Eintrag des Skills.
+- [`gate-evaluation-prompt.md`](gate-evaluation-prompt.md) — die einmalige Auswertung nach vier Wochen. Sie zählt Beförderungen, Rauschen und Freigabe-Latenz gegen Vergleichsgruppen und empfiehlt eines von drei Ergebnissen (bestanden, teilweise, verfehlt). Sie ändert nichts im Cockpit.
+
+Beide sind ID-freie Vorlagen: die Platzhalter `{{…}}` mit den Werten aus der eigenen `config.yml` ersetzen, dann die Scheduled Tasks in Claude anlegen (wöchentlich an einem anderen Tag als andere Agenten-Läufe, die dasselbe Weekly bedienen; die Auswertung am Tag nach dem letzten Weekly des Fensters).
 
 ## Changelog
 

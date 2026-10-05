@@ -99,6 +99,8 @@ idea-synthesis-skill/
 ├── README.md             ← this file
 ├── README.de.md          ← German version
 ├── ROADMAP.md            ← staged implementation plan with gates and metrics
+├── scheduled-task-prompt.md   ← template for the weekly scheduled run (stops at the preview)
+├── gate-evaluation-prompt.md  ← template for the one-shot gate evaluation after four weeks
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -113,7 +115,16 @@ The skill is one of three that share the same Idea Cockpit: `idea-cockpit` captu
 
 ## Roadmap
 
-The skill is rolled out in three gated stages — manual runs with a four-week measurement window, a weekly scheduled run that stops at the preview, and deeper infrastructure only if a measured gap justifies it. Stages, gates, metrics and risks are in [ROADMAP.md](ROADMAP.md) (German, with an English summary).
+The skill is rolled out in three gated stages — a four-week measurement window with one scheduled run per week that stops at the preview and a one-shot evaluation task that scores the gate, the same run continued as regular operation, and deeper infrastructure only if a measured gap justifies it. Stages, gates, metrics and risks are in [ROADMAP.md](ROADMAP.md) (German, with an English summary).
+
+## Scheduled operation
+
+Two prompt templates turn the skill into an unattended weekly run without giving up control over writing:
+
+- [`scheduled-task-prompt.md`](scheduled-task-prompt.md) — the weekly run. It picks one seed by a fixed rule, executes steps 0–4 of the skill and **always stops at the preview**; sparks are written only after approval in the run chat, followed by an audit line on the skill's registry entry.
+- [`gate-evaluation-prompt.md`](gate-evaluation-prompt.md) — the one-shot evaluation after four weeks. It counts promotions, noise and approval latency against comparison groups and recommends one of three outcomes (passed, partial, missed). It changes nothing in the Cockpit.
+
+Both are ID-free templates: replace the `{{…}}` placeholders with the values from your `config.yml`, then create the scheduled tasks in Claude (weekly on a different day than any other agent run that feeds the same review; the evaluation the day after the last review of the window).
 
 ## Changelog
 
