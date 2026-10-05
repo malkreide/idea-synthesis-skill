@@ -1,0 +1,19 @@
+.DS_Store
+*.log
+/tmp/
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+secrets.yaml
+config.local.*
+
+# Lokale Notion-Konfiguration — enthält die IDs des eigenen Workspace.
+config.yml
+
+# Skill-Repos liefern haeufig Python-Skripte in `scripts/` mit. Ohne diese
+# Zeilen landet beim ersten Ausfuehren eine .pyc im `git add`.
+__pycache__/
+*.py[cod]
+.pytest_cache/

@@ -1,0 +1,40 @@
+# config.example.yml — Vorlage. Nach `config.yml` kopieren und mit den eigenen
+# Notion-IDs füllen. `config.yml` ist gitignored und bleibt lokal.
+#
+# Alle IDs sind Data-Source-IDs (UUID). Sie stehen im Ergebnis von
+# `notion-fetch` auf eine Datenbank (`collection://<id>`) oder im Notion-MCP
+# unter "Data Sources". Die Datenbank-ID des Idea Cockpit (32 Hex-Zeichen aus
+# der URL) wird nur für Views gebraucht.
+
+notion:
+  idea_cockpit:
+    database_id: "00000000000000000000000000000000"
+    data_source_id: "00000000-0000-0000-0000-000000000000"
+    synthese_view_id: ""            # optional: view://… der Mess-View «🔗 Synthese»
+  themen_hub: "00000000-0000-0000-0000-000000000000"
+  ai_tools: "00000000-0000-0000-0000-000000000000"
+  source_library: "00000000-0000-0000-0000-000000000000"
+  fragmente: ""                     # optional
+  people: ""                        # optional — für Operator F (Stresstest)
+  optional:                         # nur wenn vorhanden; leer lassen, wenn nicht
+    mcp_server_portfolio: ""
+    raspberry_pi_projects: ""
+    claude_skills_registry: ""
+    impact_lab: ""
+
+cockpit:
+  # Optionen des Select-Felds «Bereich» im Idea Cockpit, in der Reihenfolge,
+  # in der sie im Rückfrage-Widget erscheinen sollen (max. 4).
+  bereiche: ["Organisation A", "Organisation B", "Fachgruppe", "Persönlich"]
+  tag_synthese: "Synthese"          # Multi-Select-Option im Feld «Tags»
+  icon: "🔗"                        # Icon für Synthese-Einträge
+
+# Harte Constraints für Operator C und die Rückfrage in Fall B (max. 4 Optionen).
+constraints:
+  - keine Cloud-LLM
+  - keine Personendaten
+  - Edge-only
+  - Prototyp in 2 Wochen
+
+# Kontext für das Scoring «Strategischer Wert»: worauf soll eine Idee Hebel haben?
+scoring_context: "Nutzen für den jeweiligen Bereich; Hebel auf die eigene Organisation"

@@ -1,0 +1,18 @@
+# .github/repo-meta.yml — von der github-repo Skill gepflegt
+repo_name: idea-synthesis-skill
+title: Idea Synthesis Skill
+description: Claude Skill for seed-based idea synthesis over a Notion knowledge base, with provenance
+topics: [claude, anthropic, claude-skill, prompt-engineering, notion, knowledge-management, idea-management]
+project_type: claude-skill
+visibility: public
+license: MIT
+author_legal_name: Hayal Özkan
+author_label: Autor
+github_user: malkreide
+default_branch: main
+language: markdown
+version: 1.1.0
+confirmed: true
+offen:
+  - topics (Session ohne gh-Login — beim Anlegen mit `gh repo edit --add-topic` setzen)
+  - secret scanning + push protection (Schritt 9.6 — nach dem Anlegen aktivieren)
